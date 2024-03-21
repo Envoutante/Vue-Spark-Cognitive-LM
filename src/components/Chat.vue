@@ -75,6 +75,7 @@ export default {
           content: this.text,
           me: true,
         })
+
         if (this.text === '图片') {
           this.msglist.push({
             id: this.msglist[this.msglist.length - 1].id + 1,
