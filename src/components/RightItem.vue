@@ -8,6 +8,7 @@
       <div class="text" v-if="type === 1" style="word-break: break-all;">
         {{ content }}
       </div>
+
       <img class="img" :src="content" v-else-if="type === 2" />
     </div>
   </div>
@@ -42,7 +43,7 @@ export default {
       background-color: #f5f6f8;
       border-radius: 10px;
       padding: 5px;
-      font-size: 14px;
+      font-size: 16px;
       color: #606266;
     }
 

@@ -91,6 +91,12 @@ export default {
     },
 
     getResponse(text) {
+      this.msglist.push({
+        id: this.msglist[this.msglist.length - 1].id + 1,
+        type: 1,
+        content: '请稍等片刻😊，我需要一点思考时间...',
+        me: false,
+      })
       getChatResponse(text).then((res) => {
         console.log('打印' + res)
         this.msglist.push({
@@ -140,6 +146,7 @@ export default {
 
       .input {
         padding-right: 10px;
+        font-size: 16px;
       }
 
       .send {
@@ -148,6 +155,7 @@ export default {
         margin-top: 7px;
         margin-right: 10px;
         border-radius: 10px;
+        font-size: 16px;
       }
     }
   }
