@@ -1,6 +1,8 @@
 var webpack = require('webpack')
 
 module.exports = {
+  publicPath: './',
+
   lintOnSave: false,
   devServer: {
     proxy: {
