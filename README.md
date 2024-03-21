@@ -1,28 +1,21 @@
-# qrobot
+# 简介
 
+![运行效果](https://hexo-0711.oss-cn-chengdu.aliyuncs.com/image/demo.png)
 
+## 安装
 
-![qrobot](https://img-blog.csdnimg.cn/20200701172427467.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhaXl1bGlhbmcyMDEz,size_16,color_FFFFFF,t_70)
-
-## Project setup
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### 启动
+
 ```
-npm run serve
+npm run dev
 ```
 
-### Compiles and minifies for production
+### 构建
+
 ```
 npm run build
 ```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
