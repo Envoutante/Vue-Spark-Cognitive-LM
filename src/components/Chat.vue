@@ -143,6 +143,7 @@ export default {
       display: flex;
       justify-content: space-between;
       background-color: #fff;
+      padding-bottom: 15px;
 
       .input {
         padding-right: 10px;
