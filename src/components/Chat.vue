@@ -26,9 +26,12 @@
       <div class="input-send">
         <van-field
           v-model="text"
-          placeholder="欢迎使用智能医生助手！请输入聊天内容..."
+          placeholder="请输入问题内容..."
           class="input"
           @keyup.enter="send"
+          type="textarea"
+          rows="1"
+          autosize
         />
         <van-button type="primary" class="send" @click="send">发送</van-button>
       </div>
@@ -59,7 +62,7 @@ export default {
         {
           id: 1,
           type: 1,
-          content: '您好！有什么我可以帮助您的吗？',
+          content: '欢迎使用智能医生助手！请问有什么可以帮助您的吗😊？',
           me: false,
         },
       ],
@@ -155,6 +158,7 @@ export default {
         height: 30px;
         margin-top: 7px;
         margin-right: 10px;
+        margin-left: 5px;
         border-radius: 10px;
         font-size: 16px;
       }
