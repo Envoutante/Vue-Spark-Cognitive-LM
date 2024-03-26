@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const request = axios.create({
-  baseURL: '/api',
+  // baseURL: '/api',
   timeout: 8000,
 })
 
@@ -9,6 +9,8 @@ const request = axios.create({
 request.interceptors.request.use(
   (config) => {
     console.log('终端打印：' + JSON.stringify(config))
+    config.url = 'https://cn-cd-dx-tmp7.natfrp.cloud:28319' + config.url
+
     return config
   },
 

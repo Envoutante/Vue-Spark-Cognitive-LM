@@ -5,15 +5,15 @@ module.exports = {
 
   lintOnSave: false,
   devServer: {
-    proxy: {
-      '/api': {
-        target: 'https://api.ai.qq.com',
-        changeOrigin: true,
-        pathRewrite: {
-          '^/api': '/',
-        },
-      },
-    },
+    // proxy: {
+    //   '/api': {
+    //     target: 'https://cn-cd-dx-tmp7.natfrp.cloud:28319',
+    //     changeOrigin: true,
+    //     pathRewrite: {
+    //       '^/api': '/',
+    //     },
+    //   },
+    // },
   },
 
   configureWebpack: {

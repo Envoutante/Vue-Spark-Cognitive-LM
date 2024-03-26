@@ -12,11 +12,13 @@
     "babel-runtime": "^6.26.0",
     "core-js": "^3.6.5",
     "crypto-js": "^4.2.0",
+    "dayjs": "^1.11.10",
     "jquery": "^3.7.1",
     "js-md5": "^0.7.3",
     "marked": "^7.0.0",
     "vant": "^2.8.7",
     "vue": "^2.6.11",
+    "vue-axios": "^3.5.2",
     "vue-markdown": "^2.2.4"
   },
   "devDependencies": {

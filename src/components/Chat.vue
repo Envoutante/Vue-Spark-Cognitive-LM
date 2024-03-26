@@ -26,7 +26,7 @@
       <div class="input-send">
         <van-field
           v-model="text"
-          placeholder="请输入问题内容..."
+          placeholder="请输入提问内容..."
           class="input"
           @keyup.enter="send"
           type="textarea"
@@ -44,6 +44,8 @@ import Vue from 'vue'
 import { getChatResponse } from '@/api/ApiChat'
 import LeftItem from '@/components/LeftItem'
 import RightItem from '@/components/RightItem'
+import dayjs from 'dayjs'
+import request from '@/api/base/request'
 
 Vue.directive('scroll', {
   inserted(el) {
@@ -70,6 +72,7 @@ export default {
   },
 
   methods: {
+    // 提交问题
     send() {
       if (this.text) {
         this.msglist.push({
@@ -93,6 +96,7 @@ export default {
       }
     },
 
+    // 获取GPT答案
     getResponse(text) {
       this.msglist.push({
         id: this.msglist[this.msglist.length - 1].id + 1,
@@ -100,8 +104,10 @@ export default {
         content: '请稍等片刻😊，我需要一点思考时间...',
         me: false,
       })
+
       getChatResponse(text).then((res) => {
         console.log('打印' + res)
+        this.saveQA(text, res)
         this.msglist.push({
           id: this.msglist[this.msglist.length - 1].id + 1,
           type: 1,
@@ -109,6 +115,43 @@ export default {
           me: false,
         })
       })
+    },
+
+    // 后端保存问题和回复
+    saveQA(question, answer) {
+      let currentDate = new Date()
+      let date = dayjs(currentDate).format('YYYY-MM-DD')
+      let time = dayjs(currentDate).format('HH:mm:ss')
+
+      // userId: this.getQueryString('userId'),
+      request({
+        url: '/receive_answer',
+        method: 'post',
+        data: {
+          userId: this.getQueryString('userId'),
+          question: question,
+          answer: answer,
+          date: date,
+          time: time,
+        },
+      })
+    },
+
+    // 获取地址栏参数
+    getQueryString(variable) {
+      var index = window.location.href.indexOf('?') // 获取地址栏路径并进行分割
+      var query = window.location.href.substr(
+        index + 1,
+        window.location.href.length
+      )
+      var vars = query.split('&')
+      for (var i = 0; i < vars.length; i++) {
+        var pair = vars[i].split('=')
+        if (pair[0] == variable) {
+          return pair[1]
+        }
+      }
+      return false // 如果没有参数就返回false值，就不会出现上边报错的情况了
     },
   },
 }
